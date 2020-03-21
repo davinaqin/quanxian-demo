@@ -14,4 +14,5 @@ public interface MyUserDao {
 
     ArrayList<MyRole> getRoleList(@Param("userId") Integer userId);
 
+    Integer register(@Param("user") MyUser user);
 }

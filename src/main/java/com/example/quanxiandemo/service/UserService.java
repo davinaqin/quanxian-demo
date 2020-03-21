@@ -11,4 +11,6 @@ public interface UserService {
     MyUser loadUserByUsername(String s);
 
     ArrayList<MyRole> getRoleList(Integer userId);
+
+    Integer register(MyUser user);
 }
