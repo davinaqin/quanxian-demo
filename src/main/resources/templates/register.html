@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +7,11 @@
 </head>
 <body>
 <h1>注册</h1>
-<form action="/doRegister" method="post">
+<form th:action="@{/doRegister}" method="post">
     <table>
         <tr>
             <td>用户名:</td>
-            <td><input name="username" type="text" /></td>
+            <td><input name="name" type="text" /></td>
         </tr>
         <tr>
             <td>密码:</td>

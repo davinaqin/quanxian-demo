@@ -7,7 +7,7 @@
     <select id="getRoleList" parameterType="java.lang.Integer" resultType="com.example.quanxiandemo.entity.MyRole">
         select r.* from my_user_role ur,my_role r where ur.role_id = r.id and ur.user_id = #{userId}
     </select>
-    <select id="getAll" resultType="com.example.quanxiandemo.entity.MyUser">
-        select * from my_user
-    </select>
+    <insert id="register" parameterType="com.example.quanxiandemo.entity.MyUser" useGeneratedKeys="true">
+        insert into my_user(name,password) values(#{user.name},#{user.password})
+    </insert>
 </mapper>

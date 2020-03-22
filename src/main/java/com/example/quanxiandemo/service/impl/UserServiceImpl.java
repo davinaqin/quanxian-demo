@@ -40,8 +40,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer register(MyUser user) {
-        log.info("用户注册开始...");
-        if (user.getName() == null || user.getPassword() == null){
+        log.info("用户注册开始...,用户参数为{}，{}，{}",user,user.getName(),user.getPassword());
+        if (user.getName().isEmpty() || user.getPassword().isEmpty()){
             log.error("用户名或密码不能为空！");
             throw new AppException("用户名或密码不能为空！");
         }
