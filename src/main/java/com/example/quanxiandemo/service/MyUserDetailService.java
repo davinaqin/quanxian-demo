@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.management.relation.RoleList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,8 @@ public class MyUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException(s);
         }
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (MyRole r : userService.getRoleList(user.getId())) {
+        ArrayList<MyRole> roles = userService.getRoleList(user.getId());
+        for (MyRole r : roles) {
             for (MyPermission p : roleService.getPermissionList(r.getId())) {
                 authorities.add(new SimpleGrantedAuthority(p.getPermissionName()));
             }
